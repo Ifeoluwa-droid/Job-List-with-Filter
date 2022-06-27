@@ -7,9 +7,9 @@ import AddRoundedIcon from '@mui/icons-material/AddRounded';
 import IconButton from '@mui/material/IconButton';
 
 
-const JobFilter = () => {
+const JobFilter = props => {
 
-   const [searchTerms, setSearchTerms] = useState([]);
+
    const [filter, setFilter] = useState(false);
    const [clear, setClear] = useState(false);
    const inputRef = useRef(null);
@@ -20,7 +20,7 @@ const JobFilter = () => {
 
    const handleClear = () => {
       setClear(true);
-      setSearchTerms([]);
+      props.onClearFilter([]);
    }
 
    const uuid = () => {
@@ -34,17 +34,16 @@ const JobFilter = () => {
    const handleAdd = () => {
       setClear(false);
       const newValue = inputRef.current.value;
-      setSearchTerms(prevValue => [...prevValue, {id: uuid(), value: newValue}]);
+      props.onAddNewSearchTerm(uuid, newValue);
       inputRef.current.value = '';
    }
 
    const handleDeleteTag = id => {
-      console.log(id);
-      const newSearchTerms = searchTerms.filter(item => {
+      const newSearchTerms = props.searchTerms.filter(item => {
          return item.id !== id;
       });
 
-      setSearchTerms(newSearchTerms);
+      props.onDeleteSearchTerm(newSearchTerms);
    }
 
 
@@ -60,12 +59,12 @@ const JobFilter = () => {
            <div style={{display: 'flex', gap: '1rem'}}>
                {!clear && <Fragment>
                   {
-                     searchTerms.map(term =>
+                     props.searchTerms.map(term =>
                         <FilterTag
                            key={term.id}
                            id={term.id}
                            name={term.value}
-                           onDeleteTag={handleDeleteTag}
+                           onDeleteTag={() => {handleDeleteTag(term.id)}}
                          />
                      )
                   }

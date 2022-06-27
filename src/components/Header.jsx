@@ -1,11 +1,16 @@
 import JobFilter from "./JobFilter";
 import React from 'react';
 
-const Header = () => {
+const Header = props => {
     return ( 
         <header>
             <img src="./images/bg-header-desktop.svg" alt=""/>
-            <JobFilter />
+            <JobFilter
+                onAddNewSearchTerm={props.onAddNewSearchTerm}
+                searchTerms={props.searchTerms}
+                onClearFilter={props.onClearSearchTerms}
+                onDeleteSearchTerm={props.onDeleteSearchTerm}
+             />
         </header>
      );
 }

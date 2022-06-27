@@ -1,0 +1,11 @@
+Job Card
+Job Tag
+New Tag
+Featured Tag
+Image
+Company Tag
+Month Tag
+Job Name
+Job Description Tag
+Job Duration
+Job Accessibility

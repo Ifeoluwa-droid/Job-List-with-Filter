@@ -1,0 +1,197 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 15px;
+  font-family: 'League Spartan', sans-serif;
+}
+
+body {
+  background: #effafa;
+}
+
+header {
+  background: #5ba4a4;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+}
+
+header img {
+  width: 100%;
+  display: block;
+}
+
+main {
+  padding: 18rem 8rem;
+}
+
+.job-description {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  color: #7b8e8e;
+  font-weight: 500;
+}
+
+.job-name {
+  color: #5ba4a4;
+  font-weight: 700;
+  background: #effafa;
+  padding: .3rem;
+  border-radius: .3rem;
+  cursor: pointer;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+
+.job-name:hover {
+  color: white;
+  background: #5ba4a4;
+}
+
+.company-name {
+  color: #5ba4a4;
+  font-weight: 700;
+}
+
+.job-tag {
+  color: #eef6f6;
+  padding: .3rem .5rem;
+  display: block;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 1.2rem;
+  margin-top: 3rem;
+  font-size: .8rem;
+  font-size: 700;
+  margin-top: 0;
+}
+
+.company-image {
+  border-radius: 50%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.job-title {
+  color: #2c3a3a;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.job-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: white;
+  padding: 3rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-radius: .5rem;
+  -webkit-box-shadow: 0 8px 20px -5px #5ba4a4;
+          box-shadow: 0 8px 20px -5px #5ba4a4;
+}
+
+.job-card.featured {
+  border-left: 0.5rem solid #5ba4a4;
+}
+
+.jobs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2rem;
+}
+
+.job-filter {
+  padding: 2rem 3rem;
+  background: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: fixed;
+  left: 8rem;
+  right: 8rem;
+  bottom: -50%;
+  border-radius: .3rem;
+  -webkit-box-shadow: 0 8px 20px -5px #5ba4a4;
+          box-shadow: 0 8px 20px -5px #5ba4a4;
+  position: absolute;
+}
+
+.filter-input {
+  border: 0.1rem solid #5ba4a4;
+  outline: none;
+  padding: .5rem;
+  border-radius: .3rem;
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+}
+
+.filter-input:focus {
+  outline: 0.05rem solid #5ba4a4;
+}
+
+.clear-button {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  outline: none;
+  border: none;
+  text-decoration: underline;
+  background: transparent;
+  color: #5ba4a4;
+  cursor: pointer;
+}
+
+.filter-name {
+  border-radius: .3rem 0 0 .3rem;
+}
+
+.filter-name:hover {
+  background: #eef6f6;
+  color: #5ba4a4;
+}
+
+.remove-icon {
+  background: #5ba4a4;
+  padding: .3rem;
+  cursor: pointer;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+  border-radius: 0 .3rem .3rem 0;
+}
+
+.remove-icon:hover {
+  background: #2c3a3a;
+}
+/*# sourceMappingURL=main.css.map */

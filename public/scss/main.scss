@@ -112,15 +112,17 @@ main {
 }
 
 .filter-input {
-    border: .1rem solid $dark-cyan;
+    border: none;
+    border-bottom: .2rem solid $dark-cyan;
     outline: none;
     padding: .5rem;
-    border-radius: .3rem;
+    // border-radius: .3rem;
     flex: auto;
 }
 
 .filter-input:focus {
-    outline: .05rem solid $dark-cyan;
+    background: $bg-grayish-cyan;
+    // outline: .05rem solid $dark-cyan;
     // box-shadow: 0 8px 15px -5px $dark-cyan;
 }
 

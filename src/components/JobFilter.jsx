@@ -9,7 +9,6 @@ import IconButton from '@mui/material/IconButton';
 
 const JobFilter = props => {
 
-
    const [filter, setFilter] = useState(false);
    const [clear, setClear] = useState(false);
    const inputRef = useRef(null);

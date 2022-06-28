@@ -9,16 +9,16 @@ const App = () => {
 
     const [searchTerms, setSearchTerms] = useState([]);
  
-    const handleClear = () => {
+    const handleClearSearchItems = () => {
        setSearchTerms([]);
     }
  
-    const handleAdd = (idGenerator, newVal) => {
+    const handleAddNewSearchItem = (idGenerator, newVal) => {
        setSearchTerms(prevValue => [...prevValue, {id: idGenerator(), value: newVal}]);
        console.log(searchTerms);
     }
  
-    const handleDeleteTag = items => {
+    const handleDeleteSearchItem = items => {
        setSearchTerms(items);
     }
 
@@ -26,12 +26,14 @@ const App = () => {
     return ( 
         <React.Fragment>
             <Header
-                onAddNewSearchTerm={handleAdd}
+                onAddNewSearchTerm={handleAddNewSearchItem}
                 searchTerms={searchTerms}
-                onClearSearchTerms={handleClear}
-                onDeleteSearchTerm={handleDeleteTag}
+                onClearSearchTerms={handleClearSearchItems}
+                onDeleteSearchTerm={handleDeleteSearchItem}
              />
-            <Jobs/>
+            <Jobs
+                searchTerms={searchTerms}
+            />
         </React.Fragment>
      );
 }

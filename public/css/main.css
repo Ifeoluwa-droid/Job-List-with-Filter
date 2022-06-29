@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&display=swap");
+/****** Color Variables *********/
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +13,7 @@ body {
   background: #effafa;
 }
 
-/**** Utilities *****/
+/*********** Mixins ************/
 header {
   background: #5ba4a4 url("../images/bg-header-desktop.svg");
   background-repeat: no-repeat;
@@ -146,6 +147,14 @@ main {
   position: absolute;
 }
 
+.filter-display {
+  overflow: auto;
+}
+
+.filter-display::-webkit-scrollbar {
+  display: none;
+}
+
 .filter-input {
   border: none;
   border-bottom: 0.2rem solid #5ba4a4;
@@ -225,6 +234,9 @@ main {
 }
 
 @media screen and (max-width: 1185px) {
+  main {
+    padding: 20rem 8rem 5rem;
+  }
   .job-card {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -244,6 +256,17 @@ main {
   }
   .job-card > .d-flex-row:first-child > .d-flex-column {
     gap: 1rem;
+  }
+  .job-card > .d-flex-row:last-child {
+    display: block;
+  }
+  .job-card > .d-flex-row:last-child > div {
+    display: inline-block;
+    margin-right: 2rem;
+    margin-bottom: 1rem;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
   }
   .show-on-mobile {
     display: block;
@@ -266,7 +289,7 @@ main {
 
 @media screen and (max-width: 968px) {
   main {
-    padding: 18rem 5rem 5rem;
+    padding: 20rem 5rem 5rem;
   }
   .job-filter {
     left: 5rem;
@@ -282,11 +305,17 @@ main {
 
 @media screen and (max-width: 660px) {
   main {
-    padding: 18rem 3rem 5rem;
+    padding: 20rem 3rem 5rem;
   }
   .job-filter {
     left: 3rem;
     right: 3rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  header {
+    background: #5ba4a4 url("../images/bg-header-mobile.svg");
   }
 }
 /*# sourceMappingURL=main.css.map */

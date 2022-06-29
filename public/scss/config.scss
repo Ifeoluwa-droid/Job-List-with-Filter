@@ -1,11 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700&display=swap');
 
 
+/****** Color Variables *********/
 $dark-cyan: hsl(180, 29%, 50%);
 $bg-grayish-cyan: hsl(180, 52%, 96%);
 $light-grayish-cyan: hsl(180, 31%, 95%);
 $dark-grayish-cyan: hsl(180, 8%, 52%);
 $very-dark-grayish-cyan: hsl(180, 14%, 20%);
+$white: hsl(0, 0, 100%);
+
+
+// .attribution { font-size: 11px; text-align: center; }
+// .attribution a { color: hsl(228, 45%, 44%); }
 
 
 * {
@@ -17,8 +23,7 @@ $very-dark-grayish-cyan: hsl(180, 14%, 20%);
 }
 
 body {
-    background: hsl(180, 52%, 96%);
+    background: $bg-grayish-cyan;
 }
 
 
-/**** Utilities *****/ 

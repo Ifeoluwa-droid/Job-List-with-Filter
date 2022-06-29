@@ -3,15 +3,15 @@ import FilterTag from "./FilterTag";
 import {useState, useRef} from 'react';
 import FilterListRoundedIcon from '@mui/icons-material/FilterListRounded';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
-import AddRoundedIcon from '@mui/icons-material/AddRounded';
+import FilterInput from './FilterInput';
 import IconButton from '@mui/material/IconButton';
 
 
 const JobFilter = props => {
-
    const [filter, setFilter] = useState(false);
    const [clear, setClear] = useState(false);
-   const inputRef = useRef(null);
+   const desktopInputRef = useRef(null);
+   const mobileInputRef = useRef(null);
 
    const handleFilter = () => {
       setFilter(!filter);
@@ -22,6 +22,7 @@ const JobFilter = props => {
       props.onClearFilter([]);
    }
 
+   /********** Unique id generator **********/
    const uuid = () => {
       return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
          const d = Math.floor(Math.random() / 16);
@@ -32,9 +33,13 @@ const JobFilter = props => {
 
    const handleAdd = () => {
       setClear(false);
-      const newValue = inputRef.current.value;
+      let newValue = desktopInputRef.current.value;
+      if (!newValue) {
+         newValue = mobileInputRef.current.value;
+      }
       props.onAddNewSearchTerm(uuid, newValue);
-      inputRef.current.value = '';
+      desktopInputRef.current.value = '';
+      mobileInputRef.current.value = '';
    }
 
    const handleDeleteTag = id => {
@@ -48,14 +53,13 @@ const JobFilter = props => {
 
     return ( 
         <div className="job-filter">
-         {filter && <div className="d-flex-row gap-2 unshow-on-mobile" style={{alignItems: 'center'}}>
-            <IconButton onClick={handleAdd}>
-               <AddRoundedIcon />
-            </IconButton>
-            <input className="filter-input" type="text" ref={inputRef} /> 
-         </div>}
+         {filter && <FilterInput
+               ref={desktopInputRef}
+               className='unshow-on-mobile'
+               onAddFilterItem={handleAdd}
+          />}
          <div className='d-flex-row' style={{justifyContent: 'space-between'}}>
-           <div className='d-flex-row' style={{gap: '1rem'}}>
+           <div className='d-flex-row filter-display' style={{gap: '1rem'}}>
                {!clear && <Fragment>
                   {
                      props.searchTerms.map(term =>
@@ -76,12 +80,11 @@ const JobFilter = props => {
                <button className='clear-button' onClick={handleClear}>Clear</button>
            </div>
          </div>
-         {filter && <div className="d-flex-row gap-2 show-on-mobile" style={{alignItems: 'center'}}>
-            <IconButton onClick={handleAdd}>
-               <AddRoundedIcon />
-            </IconButton>
-            <input className="filter-input" type="text" ref={inputRef} /> 
-         </div>}
+         {filter && <FilterInput 
+            ref={mobileInputRef}
+            className="show-on-mobile"
+            onAddFilterItem={handleAdd}
+         />}
         </div>
      );
 }

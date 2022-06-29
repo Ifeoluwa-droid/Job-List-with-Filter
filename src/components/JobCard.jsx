@@ -8,13 +8,13 @@ import JobName from "./JobName";
 
 const JobCard = props => {
     return ( 
-        <div className="job-card featured">
-            <div style={{display: 'flex', gap: '2rem'}}>
+        <div className={`job-card ${props.featured && 'featured'}`}>
+            <div className='d-flex-row' style={{gap: '2rem'}}>
                 <CompanyImage
                     src={[props.companyLogo]}
                 />
-                <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-around'}}>
-                    <div style={{display: 'flex', gap: '1rem'}}>
+                <div className='d-flex-column' style={{justifyContent: 'space-around'}}>
+                    <div className='d-flex-row' style={{gap: '1rem'}}>
                         <CompanyName 
                             name={props.companyName}
                         />
@@ -35,7 +35,8 @@ const JobCard = props => {
                      />
                 </div>
             </div>
-            <div style={{display: 'flex', gap: '1.5rem'}}>
+            <hr className='show-on-mobile' style={{width: '100%'}}/>
+            <div className='d-flex-row' style={{gap: '1.5rem'}}>
                 <JobName 
                 name={props.role}
                 />

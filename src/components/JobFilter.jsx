@@ -48,14 +48,14 @@ const JobFilter = props => {
 
     return ( 
         <div className="job-filter">
-         {filter && <div style={{display: 'flex', gap: '2rem', alignItems: 'center'}}>
+         {filter && <div className="d-flex-row gap-2 unshow-on-mobile" style={{alignItems: 'center'}}>
             <IconButton onClick={handleAdd}>
                <AddRoundedIcon />
             </IconButton>
             <input className="filter-input" type="text" ref={inputRef} /> 
          </div>}
-         <div style={{display: 'flex', justifyContent: 'space-between'}}>
-           <div style={{display: 'flex', gap: '1rem'}}>
+         <div className='d-flex-row' style={{justifyContent: 'space-between'}}>
+           <div className='d-flex-row' style={{gap: '1rem'}}>
                {!clear && <Fragment>
                   {
                      props.searchTerms.map(term =>
@@ -69,13 +69,19 @@ const JobFilter = props => {
                   }
                </Fragment>}
            </div>
-           <div style={{display: 'flex', gap: '2rem'}}>
+           <div className='d-flex-row gap-2'>
                <IconButton aria-label='filter' onClick={handleFilter}>
                      {filter ? <CloseRoundedIcon /> : <FilterListRoundedIcon />}
                </IconButton>
                <button className='clear-button' onClick={handleClear}>Clear</button>
            </div>
          </div>
+         {filter && <div className="d-flex-row gap-2 show-on-mobile" style={{alignItems: 'center'}}>
+            <IconButton onClick={handleAdd}>
+               <AddRoundedIcon />
+            </IconButton>
+            <input className="filter-input" type="text" ref={inputRef} /> 
+         </div>}
         </div>
      );
 }

@@ -7,7 +7,7 @@ const Jobs = props => {
     const [jobs, setJobs] = useState(null)
 
     useEffect(() => {
-        fetch('http://localhost:8000/jobs').then(res => res.json()).then(data => {
+        fetch('https://ifeoluwa-droid.github.io/Job-List-with-Filter/data/db.json').then(res => res.json()).then(data => {
             setJobs(data)
         })
     }, []);

@@ -6,9 +6,13 @@ const Jobs = props => {
 
     const [jobs, setJobs] = useState(null)
 
+    const workingFrom = 'external';
+
+    let endpoint = workingFrom === 'local' ? 'http://localhost:8000/jobs' : 'https://ifeoluwa-droid.github.io/Job-List-with-Filter/data/db.json';  
+
     useEffect(() => {
-        fetch('http://localhost:8000/jobs').then(res => res.json()).then(data => {
-            setJobs(data)
+        fetch(endpoint).then(res => res.json()).then(data => {
+            setJobs(workingFrom === 'local' ? data : data.jobs) // since we are using github hosted api.
         })
     }, []);
 
@@ -19,6 +23,8 @@ const Jobs = props => {
         const jobTools = job.tools.map(tool => tool.toLowerCase());
 
         const jobTags = jobRole.concat(jobLevel).concat(jobLanguages).concat(jobTools);
+
+        console.log(jobTags);
 
         if (props.searchTerms.every(tag => jobTags.includes(tag.value.toLowerCase()))) {
             console.log(true);

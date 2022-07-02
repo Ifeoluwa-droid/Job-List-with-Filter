@@ -13,8 +13,7 @@ const Jobs = props => {
     useEffect(() => {
         fetch(endpoint).then(res => res.json()).then(data => {
             setJobs(workingFrom === 'local' ? data : data.jobs) // since we are using github hosted api.
-        })
-    }, []);
+    })}, []);
 
     const filterJobs = (job) => {
         const jobRole = [job.role.toLowerCase()];
